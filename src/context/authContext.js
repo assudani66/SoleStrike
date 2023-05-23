@@ -16,7 +16,7 @@ const AuthContextProvider = (props) => {
             method: 'POST',
             body: JSON.stringify(creds(userEmail, userPassword))
           });
-          console.log(userToken)
+          console.log(userToken,"userInfo")
           if(userToken.status === 200 ){
             const userTokenJSON = await userToken.json();
             console.log(userToken)

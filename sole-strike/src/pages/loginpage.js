@@ -1,12 +1,12 @@
 import React from 'react'
 import { useAuth } from '../context/authContext'
 
-const Login = () => {
+const LoginPage = () => {
     const {loginInfo,loginDispatch,getLoginData,signUpUser} = useAuth()
-   console.log(loginInfo)
+    console.log(loginInfo)
   return (
     <div>
-      <p>Status:{loginInfo?.token?.length > 0 ? 'online' : 'offline'}</p>
+      <p>Status:{loginInfo?.isLoggedIn > 0 ? 'online' : 'offline'}</p>
         <button onClick={()=>getLoginData("assudani66@gmail.com", "78585212")}>Login</button>
         <button onClick={()=>loginDispatch({type:"logout"})}>Logout</button>
         <button onClick={()=>getLoginData("adarshbalika@gmail.com", "adarshbalika")}>Login with TestCredits</button>
@@ -15,4 +15,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginPage

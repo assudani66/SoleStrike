@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useReducer } from 'react';
-import axios from 'axios';
+import React, { createContext, useContext, useEffect, useReducer } from 'react';
 
 const authContext = createContext();
 
@@ -17,14 +16,22 @@ const AuthContextProvider = (props) => {
             method: 'POST',
             body: JSON.stringify(creds(userEmail, userPassword))
           });
-          const userTokenJSON = await userToken.json();
-          loginDispatch({type:"login",payload:userTokenJSON,login:true})
-          localStorage.setItem('token', userTokenJSON.encodedToken);
-
-          return userTokenJSON.encodedToken;
+          if(userToken.status === 200 ){
+            const userTokenJSON = await userToken.json();
+            console.log(userToken)
+            loginDispatch({type:"login",payload:userTokenJSON.encodedToken,login:true})
+            localStorage.setItem('token', userTokenJSON.encodedToken);
+          }
+          else{
+            loginDispatch({type:"login",payload:"",login:true})
+            localStorage.setItem('token', "");
+          }
     }catch(error){
         console.log(error)
+        loginDispatch({type:"login",payload:"tokenNotAllowed",login:true})
+    
     }
+
   };
 
   const signUpUser = async () => {
@@ -41,26 +48,21 @@ const AuthContextProvider = (props) => {
               password: '78585212',
             }),
           });
-      console.log(response)
+
       localStorage.setItem("token", response.data.encodedToken);
-      return response.data.encodedToken;
+      
     } catch (error) {
       console.log(error);
     }
   };
 
-  const getLocalToken = () => {
-    return localStorage.getItem("token");
-  };
-
   const loginReducer = (loginInfo, action) => {
-    
+
     switch (action.type) {
     case "login":
         return{...loginInfo,
             token:action.payload,
             isLoggedIn:action.login}
-
       case "logout":
         localStorage.removeItem("token");
         return {
@@ -68,38 +70,40 @@ const AuthContextProvider = (props) => {
           token: "",
           isLoggedIn: false
         };
-
       case "loginWithTestUser":
           return {
             ...loginInfo,
             token: action.payload,
-            isLoggedIn: true
+            isLoggedIn: action.login
           }
-
       case "signUp":
           return {
             token: action.payload,
             isLoggedIn: true
           };
 
-      case "checkIsLoggedIn":
-        const availableToken = getLocalToken();
-        return {
-          token: availableToken,
-          isLoggedIn: true
-        };
-
+      case "loadLocalToken":
+          return{
+            token:action.payload,
+            isLoggedIn:action.login
+          }
       default:
         return loginInfo;
     }
   };
+
   const initialState = {
-    loading: false,
-    loginInfo: null,
-    error: null
+    token:"",
+    isLoggedIn:false
   };
 
   const [loginInfo, loginDispatch] = useReducer(loginReducer, initialState);
+
+  useEffect(()=>{
+    const localToken = localStorage.getItem("token")
+    console.log(localToken)
+    loginDispatch({type:"loadLocalToken",payload:localToken,login:localToken === null ? false:true})
+  },[])
 
   return (
     <authContext.Provider value={{ loginInfo, loginDispatch,getLoginData,signUpUser }}>

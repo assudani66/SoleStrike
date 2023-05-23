@@ -6,8 +6,7 @@ import { useProductData } from '../hooks/useProductData'
 const filterContext = createContext()
 
 const FilterContextProvider = (props) => {
-
-    const productData = useProductData()
+const productData = useProductData()
 const activeFiltersInitialValue = {
     searchName : "",
     activeCategory:[],

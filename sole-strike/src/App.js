@@ -1,10 +1,9 @@
 import { BrowserRouter } from "../node_modules/react-router-dom/dist/index";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
+import AuthContextProvider from "./context/authContext";
 import CartContextProvider from "./context/cartContext";
 import FilterContextProvider from "./context/filterContext";
-import Cart from "./pages/cart";
-import Store from "./pages/store";
 import AppRouter from "./utils/AppRouter";
 
 
@@ -15,7 +14,9 @@ function App() {
       <Navbar/>
         <FilterContextProvider>
           <CartContextProvider>
+            <AuthContextProvider>
               <AppRouter/>
+            </AuthContextProvider>
           </CartContextProvider>
         </FilterContextProvider>
       </BrowserRouter>

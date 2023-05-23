@@ -6,7 +6,7 @@ const Cart = () => {
     const cart = useCart()
   return (
     <div>
-      
+      "yourCart"
     </div>
   )
 }

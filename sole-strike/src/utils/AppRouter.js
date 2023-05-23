@@ -5,6 +5,9 @@ import WishList from '../pages/wishlist'
 import ProductDetails from '../pages/productDetails'
 import MockmanAPI from '../pages/mockman'
 import Store from '../pages/store'
+import Cart from '../pages/cart'
+import UserProfile from '../pages/userProfile'
+import Login from '../pages/loginpage'
 
 const AppRouter = () => {
   return (
@@ -13,9 +16,11 @@ const AppRouter = () => {
             <Route path="/" element={<HomePage/>}/>
             <Route path="/wishList" element={<WishList/>}/>
             <Route path="/store" element={<Store/>}/>
-            <Route path="/cart" element={<WishList/>}/>
+            <Route path="/cart" element={<Cart/>}/>
             <Route path="/product-details/:productId" element={<ProductDetails/>}/>
             <Route path="/mockman" element={<MockmanAPI/>}/>
+            <Route path="/user-profile" element={<UserProfile/>}/>
+            <Route path="/login" element={<Login/>}/>
         </Routes>
     </>
   )

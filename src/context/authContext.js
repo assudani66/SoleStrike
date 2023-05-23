@@ -30,9 +30,7 @@ const AuthContextProvider = (props) => {
     }catch(error){
         console.log(error)
         loginDispatch({type:"login",payload:"tokenNotAllowed",login:true})
-    
     }
-
   };
 
   const signUpUser = async () => {

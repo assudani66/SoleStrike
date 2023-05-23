@@ -1,13 +1,12 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
-import { useProductData } from '../hooks/useProductData'
+import React, { createContext, useContext, useState } from 'react'
 
 const cartContext = createContext()
 
 
 const CartContextProvider = (props) => {
 
-    const [shoesData,setShoesData] = useState()
-    const [cart,setCart] = useState()
+    const [shoesData] = useState()
+    const [cart] = useState()
     
     return (
     <cartContext.Provider value={{cart,shoesData}}>

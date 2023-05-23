@@ -101,7 +101,8 @@ const AuthContextProvider = (props) => {
 
   useEffect(()=>{
     const localToken = localStorage.getItem("token")
-    console.log(localToken.length ? true :false)
+    console.log(localToken? true :false)
+
     loginDispatch({type:"loadLocalToken",payload:localToken,login:localToken ? true : false})
   },[])
 

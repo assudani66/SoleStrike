@@ -23,7 +23,7 @@ const AuthContextProvider = (props) => {
             localStorage.setItem('token', userTokenJSON.encodedToken);
           }
           else{
-            loginDispatch({type:"login",payload:"",login:true})
+            loginDispatch({type:"login",payload:"",login:false})
             localStorage.setItem('token', "");
           }
     }catch(error){
@@ -101,8 +101,8 @@ const AuthContextProvider = (props) => {
 
   useEffect(()=>{
     const localToken = localStorage.getItem("token")
-    console.log(localToken)
-    loginDispatch({type:"loadLocalToken",payload:localToken,login:localToken === null ? false:true})
+    console.log(localToken.length ? true :false)
+    loginDispatch({type:"loadLocalToken",payload:localToken,login:localToken.length > 0 ? true : false})
   },[])
 
   return (

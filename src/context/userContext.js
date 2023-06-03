@@ -1,17 +1,17 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 const userContext = createContext()
 
 const UserContextProvider = ({children}) => {
     const userToken = localStorage.getItem("token")
-    const userReducer = (action,dispatch) =>{
+    const userReducer = (userState,action) =>{
         switch (action.type) {
             case "LoginUserData":
                 
                 break;
-            case "addAdress":
-                break;
-            
+            case "addAddress":
+                return {...userState,address:action.payload}
+
             default:
                 break;
         }
@@ -28,9 +28,9 @@ const UserContextProvider = ({children}) => {
           
               if (response.ok) {
                 const data = await response.json();
-                console.log(data)
+                console.log(data.address)
                 const addresses = data.address;
-                // console.log('Addresses:', addresses);
+                userDispatch({type:"addAddress",payload:addresses})
               } else {
                 const errorData = await response.json();
                 console.error('Error retrieving addresses:', errorData);
@@ -61,13 +61,18 @@ const UserContextProvider = ({children}) => {
           };
           
 
+          useEffect(()=>{
+            getAddresses()
+            console.log(userData)
+          },[])
+
         const intialUserData = {
             name: "",
             email: "",
             address: {},
             
         }
-        const [userData,dispatch] = useReducer(userReducer,intialUserData)
+        const [userData,userDispatch] = useReducer(userReducer,intialUserData)
         
    return(<userContext.Provider value={{getAddresses,removeAddress}}>
         {children}

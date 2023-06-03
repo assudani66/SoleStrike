@@ -4,8 +4,7 @@ import { useUserData } from '../context/userContext'
 
 const UserProfile = () => {
 const {getAddresses,removeAddress} = useUserData()
-
-console.log(getAddresses())
+getAddresses()
   return (
     <div>
     </div>

@@ -4,7 +4,7 @@ import { useCart } from "../context/cartContext"
 const Cart = () => {
   const {cart} = useCart()
     return (<>
-    {cart.map(product => <CartCard {...product} />)}
+    {cart.map(product => <CartCard key={product._id} {...product} isInCart />)}
     </>
   )
 }

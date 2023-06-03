@@ -25,6 +25,7 @@ import {
 import { categories } from "./backend/db/categories";
 import { products } from "./backend/db/products";
 import { users } from "./backend/db/users";
+import { addNewAddressHandler, editAddressHandler, getAllAddressesHandler, removeAddressHandler } from "./backend/controllers/AddressController";
 
 export function makeServer({ environment = "development" } = {}) {
   return new Server({
@@ -85,6 +86,12 @@ export function makeServer({ environment = "development" } = {}) {
         "/user/wishlist/:productId",
         removeItemFromWishlistHandler.bind(this)
       );
+
+      // address management routes(private)
+      this.get("/user/addresses", getAllAddressesHandler.bind(this));
+      this.post("/user/address", addNewAddressHandler.bind(this));
+      this.post("/user/address/edit/:addressId", editAddressHandler.bind(this));
+      this.delete("/user/address/:addressId", removeAddressHandler.bind(this));
     },
   });
 }

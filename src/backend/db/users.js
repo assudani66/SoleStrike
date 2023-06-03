@@ -15,5 +15,14 @@ export const users = [
     password: "adarshbalika",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    address : [{
+      name: 'Adarsh Balika',
+      street: '123 Main Street',
+      city: 'New York',
+      state: 'NY',
+      zipcode: '12345',
+      country: 'United States',
+      phoneNumber: '123-456-7890'
+    }]
   },
 ];

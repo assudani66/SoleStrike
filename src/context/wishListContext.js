@@ -1,14 +1,14 @@
 import React, { createContext, useContext, useEffect, useReducer, useState } from 'react'
 
-const cartContext = createContext()
+const wishListContext = createContext()
 
-const CartContextProvider = (props) => {
+const WishListContextProvider = (props) => {
 
   const localToken = localStorage.getItem("token");
 
-  const getCart = async() =>{
+  const getwishList = async() =>{
     try{
-      const response = await fetch("/api/user/cart",{
+      const response = await fetch("/api/user/wishlist",{
         method: 'GET',
         headers:{
           'authorization' : localToken,
@@ -23,28 +23,28 @@ const CartContextProvider = (props) => {
   }
 
 
-    const cartReducer = (cart,action) => {
+    const wishListReducer = (wishList,action) => {
 
       switch (action.type) {
         case "addItem":
           return action.payload
-        case "loadCart":
+        case "loadwishList":
         return action.payload
         default:
-          return cart
+          return wishList
       }
     }
 
-    const [cart,cartDispatch] = useReducer(cartReducer,[])
+    const [wishList,wishListDispatch] = useReducer(wishListReducer,[])
 
-    const itemExistInCart = (selectedProductId) => {
-      return cart.find(({_id})=> _id === selectedProductId._id) ? true : false
+    const itemExistInwishList = (selectedProductId) => {
+      return wishList.find(({_id})=> _id === selectedProductId._id) ? true : false
     }
 
-    const addToCart = async (product) => {
+    const addTowishList = async (product) => {
       try {
-        if(!itemExistInCart(product)){
-        const response = await fetch("/api/user/cart", {
+        if(!itemExistInwishList(product)){
+        const response = await fetch("/api/user/wishlist", {
           method: 'POST',
           headers: {
             'authorization': localToken,
@@ -55,17 +55,17 @@ const CartContextProvider = (props) => {
           }),
         });
         const data = await response.json();
-        cartDispatch({type:"addItem",payload:data.cart,selectedProduct:product})
-        console.log(data.cart)
+        wishListDispatch({type:"addItem",payload:data.wishlist,selectedProduct:product})
+        console.log(data.wishlist)
       }
       } catch (error) {
         console.error(error);
       }
     };
 
-const removeCartItem = async (product) => {
+const removeWishListItem = async (product) => {
   try {
-    const response = await fetch(`/api/user/cart/${product._id}`, {
+    const response = await fetch(`/api/user/wishlist/${product._id}`, {
       method: 'DELETE',
       headers: {
         'authorization': localToken,
@@ -76,8 +76,8 @@ const removeCartItem = async (product) => {
       }),
     });
     const data = await response.json();
-    cartDispatch({type:"addItem",payload:data.cart,selectedProduct:product})
-    console.log(data.cart)
+    wishListDispatch({type:"addItem",payload:data.wishlist,selectedProduct:product})
+    console.log(data.wishlist)
   } catch (error) {
     console.error(error);
   }
@@ -86,7 +86,7 @@ const updateItemQuantity = async (product,type) => {
 
   try {
     if(product.qty >= 1){
-    const response = await fetch(`/api/user/cart/${product._id}`, {
+    const response = await fetch(`/api/user/wishlist/${product._id}`, {
       method: 'POST',
       headers: {
         'authorization': localToken,
@@ -99,25 +99,25 @@ const updateItemQuantity = async (product,type) => {
       }),
     });
     const data = await response.json();
-    cartDispatch({type:"addItem",payload:data.cart,selectedProduct:product})
-    console.log(data.cart)
+    wishListDispatch({type:"addItem",payload:data.wishlist,selectedProduct:product})
+    console.log(data.wishlist)
   }
   } catch (error) {
     console.error(error);
   }
 }
     useEffect(()=>{
-      getCart()
-      console.log(cart)
+      getwishList()
+      console.log(wishList)
     },[])
     return (
-    <cartContext.Provider value={{addToCart,cart,removeCartItem,updateItemQuantity}}>
+    <wishListContext.Provider value={{addTowishList,wishList,removeWishListItem,updateItemQuantity}}>
         {props.children}
-    </cartContext.Provider>
+    </wishListContext.Provider>
   )
 }
 
-export const useCart = () => useContext(cartContext)
+export const useWishList = () => useContext(wishListContext)
 
-export default CartContextProvider
+export default WishListContextProvider
 

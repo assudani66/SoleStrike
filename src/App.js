@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar/Navbar";
 import AuthContextProvider from "./context/authContext";
 import CartContextProvider from "./context/cartContext";
 import FilterContextProvider from "./context/filterContext";
+import UserContextProvider from "./context/userContext";
+import WishListContextProvider from "./context/wishListContext";
 import AppRouter from "./utils/AppRouter";
 
 
@@ -15,7 +17,11 @@ function App() {
         <FilterContextProvider>
           <CartContextProvider>
             <AuthContextProvider>
-              <AppRouter/>
+              <UserContextProvider>
+                <WishListContextProvider>
+                <AppRouter/>
+              </WishListContextProvider>
+              </UserContextProvider>
             </AuthContextProvider>
           </CartContextProvider>
         </FilterContextProvider>

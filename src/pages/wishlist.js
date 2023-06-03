@@ -1,9 +1,12 @@
-import React from 'react'
+import CartCard from "../components/CartCard/CartCard"
+import { useWishList } from "../context/wishListContext"
 
-const WishList = () => {
-  return (
-    <div>WishList</div>
+const Cart = () => {
+  const {wishList} = useWishList()
+    return (<>
+    {wishList.map(product => <CartCard key={product._id} {...product} />)}
+    </>
   )
 }
 
-export default WishList
+export default Cart

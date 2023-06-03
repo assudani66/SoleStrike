@@ -1,9 +1,11 @@
+import CartCard from "../components/CartCard/CartCard"
+import { useCart } from "../context/cartContext"
 
 const Cart = () => {
-
-    return (
-    <div>
-    </div>
+  const {cart} = useCart()
+    return (<>
+    {cart.map(product => <CartCard {...product} />)}
+    </>
   )
 }
 

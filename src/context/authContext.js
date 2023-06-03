@@ -9,14 +9,13 @@ const AuthContextProvider = (props) => {
     password: userPassword
   });
 
-  const getLoginData = async (userEmail, userPassword) => {
-    
+  const loginUser = async (userEmail, userPassword) => {
+ 
     try{
         const userToken = await fetch("/api/auth/login", {
             method: 'POST',
             body: JSON.stringify(creds(userEmail, userPassword))
           });
-          console.log(userToken,"userInfo")
           if(userToken.status === 200 ){
             const userTokenJSON = await userToken.json();
             console.log(userToken)
@@ -47,8 +46,6 @@ const AuthContextProvider = (props) => {
               password: '78585212',
             }),
           });
-
-      localStorage.setItem("token", response.data.encodedToken);
       
     } catch (error) {
       console.log(error);
@@ -100,13 +97,11 @@ const AuthContextProvider = (props) => {
 
   useEffect(()=>{
     const localToken = localStorage.getItem("token")
-    console.log(localToken? true :false)
-
     loginDispatch({type:"loadLocalToken",payload:localToken,login:localToken ? true : false})
   },[])
 
   return (
-    <authContext.Provider value={{ loginInfo, loginDispatch,getLoginData,signUpUser }}>
+    <authContext.Provider value={{ loginInfo, loginDispatch,loginUser,signUpUser }}>
       {props.children}
     </authContext.Provider>
   );

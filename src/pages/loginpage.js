@@ -1,16 +1,16 @@
 import React from 'react'
 import { useAuth } from '../context/authContext'
+import SignUp from '../components/LoginSection/SignUp'
+import Login from '../components/LoginSection/Login'
 
 const LoginPage = () => {
-    const {loginInfo,loginDispatch,getLoginData,signUpUser} = useAuth()
-    console.log(loginInfo)
+    const {loginInfo:{isLoggedIn},loginDispatch,loginUser} = useAuth()
   return (
     <div>
-      <p>Status:{loginInfo?.isLoggedIn > 0 ? 'online' : 'offline'}</p>
-        <button onClick={()=>getLoginData("assudani66@gmail.com", "78585212")}>Login</button>
-        <button onClick={()=>loginDispatch({type:"logout"})}>Logout</button>
-        <button onClick={()=>getLoginData("adarshbalika@gmail.com", "adarshbalika")}>Login with TestCredits</button>
-        <button onClick={()=>signUpUser("")}>signUp</button>
+      <p>Status:{isLoggedIn > 0 ? 'online' : 'offline'}</p>
+        <Login/>
+       <button onClick={()=>loginDispatch({type:"logout"})}>Logout</button>
+       isLoggedIn && <SignUp/>
     </div>
   )
 }

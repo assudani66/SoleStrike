@@ -25,7 +25,6 @@ const HomePage = () => {
         }}>
         Casual_Shoes
       </div>
-      </div>
     </div>
   )
 }

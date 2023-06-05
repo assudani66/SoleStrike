@@ -30,6 +30,16 @@ const SideBarFilter = () => {
             }
             value='Sport_Shoes'
           />
+          <label htmlFor='dressShoes'>Dress Shoes</label>
+          <input
+            id='dressShoes'
+            type='checkbox'
+            checked={activeFilters.activeCategory.includes('Dress_Shoes')}
+            onChange={(e) =>{
+              filterDispatch({ type: "activeCategory", payload: e.target.value })}
+            }
+            value='Dress_Shoes'
+          />
           <input type='range' step={10} onChange={(e)=>filterDispatch({type:"priceRange",payload:e.target.value})}/>
           <div style={{display:"flex"}}>
             <div>

@@ -4,7 +4,7 @@ import { useFilterContext } from '../../context/filterContext'
 const SideBarFilter = () => {
     const {activeFilters,filterDispatch} = useFilterContext()
     const sizes = [6,7,8,9,10,11,12]
-    const rating = []
+    const rating = [{display:'⭐',value:1},{display:'⭐⭐',value:2},{display:'⭐⭐⭐',value:3},{display:'⭐⭐⭐⭐',value:4},{display:'⭐⭐⭐⭐⭐',value:5}]
     return (
         <div>
           <input
@@ -42,11 +42,10 @@ const SideBarFilter = () => {
           />
           <input type='range' step={10} onChange={(e)=>filterDispatch({type:"priceRange",payload:e.target.value})}/>
           <div style={{display:"flex"}}>
-            <div>
+            <div style={{display:"block"}}>
               {sizes.map(size=><div value={size} className='shoeSize' onClick={()=>filterDispatch({type:"activeSize",payload:size})}><div className='shoeSizeText'>{size}</div></div>)}
             </div>
           </div>
-          {console.log(activeFilters)}
           <label>Leather
           <input
             id='Leather'
@@ -80,23 +79,10 @@ const SideBarFilter = () => {
             value='Synthetic'
           />
           </label>
-          <select onChange={e=>filterDispatch({type:'ratingSelect',payload:(e.target.value)})}>
-            <option value={1}>
-              ⭐
-            </option>
-            <option value={2}>
-              ⭐⭐
-            </option>
-            <option value={3}>
-              ⭐⭐⭐
-            </option>
-            <option value={4}>
-              ⭐⭐⭐⭐
-            </option>
-            <option value={5}>
-              ⭐⭐⭐⭐⭐
-            </option>
-          </select>
+          <div>{rating.map(({display,value})=><div style={{cursor:"pointer"}} onClick={()=>filterDispatch({type:'ratingSelect',payload
+          :value})}>{display}</div>)
+            }
+          </div>
         </div>
       )
     }

@@ -10,7 +10,7 @@ const activeFiltersInitialValue = {
     activeCategory:[],
     activeSize:'ALL',
     ratingSelect:'ALL',
-    priceRange: 100,
+    priceRange: 150,
     sortBy:"NONE",
     activeMaterial:[]
 }
@@ -83,7 +83,7 @@ const filterReducer = (activeFilter, action) => {
   console.log()
   const priceFiltered = ratingFiltered.filter((product) => product.price<activeFilters.priceRange)
 
-  const sizeFiltered = activeFilters.activeSize === "ALL" ? priceFiltered : priceFiltered.filter((product)=>product.availableSizes.includes(parseInt(activeFilters.activeSize)))
+  const sizeFiltered = activeFilters.activeSize === "ALL" ? priceFiltered : priceFiltered.filter((product)=>product.availableSizes.includes(activeFilters.activeSize))
 
   const searchFiltered = activeFilters.searchName.length >= 0 ? sizeFiltered.filter((product)=>product.name.toLowerCase().includes(activeFilters.searchName.toLowerCase())) : sizeFiltered
 

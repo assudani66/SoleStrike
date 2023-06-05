@@ -63,7 +63,6 @@ const UserContextProvider = ({children}) => {
 
           useEffect(()=>{
             getAddresses()
-            console.log(userData)
           },[])
 
         const intialUserData = {

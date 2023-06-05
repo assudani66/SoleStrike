@@ -86,7 +86,7 @@ export function makeServer({ environment = "development" } = {}) {
         "/user/wishlist/:productId",
         removeItemFromWishlistHandler.bind(this)
       );
-
+      
       // address management routes(private)
       this.get("/user/addresses", getAllAddressesHandler.bind(this));
       this.post("/user/address", addNewAddressHandler.bind(this));

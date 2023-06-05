@@ -13,6 +13,25 @@
   }
 }
 
+.shoeSize {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.shoeSizeText {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.shoeSize.selected {
+  background-color: #000;
+}
 .App-header {
   background-color: #22201c;
   min-height: 100vh;

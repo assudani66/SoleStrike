@@ -1,6 +1,5 @@
 import { v4 as uuid } from "uuid";
 
-
 export const products = [
   {
     _id: uuid(),
@@ -10,10 +9,13 @@ export const products = [
     originalPrice: 59.99,
     bgColor: "#ffffff",
     category: "Sport_Shoes",
+    rating: [2, 122],
+    availableSizes: [6, 7, 9, 10, 12],
     availableVariants: [
       { color: "#00ff00", name: "Special Edition" },
       { color: "#0000ff", name: "Limited Edition" },
     ],
+    material: "Synthetic",
   },
   {
     _id: uuid(),
@@ -23,10 +25,13 @@ export const products = [
     originalPrice: 89.99,
     bgColor: "#f2f2f2",
     category: "Casual_Shoes",
+    rating: [4, 122],
+    availableSizes: [6, 7, 9, 11, 12],
     availableVariants: [
       { color: "#00ff00", name: "Special Edition" },
       { color: "#0000ff", name: "Limited Edition" },
     ],
+    material: "Canvas",
   },
   {
     _id: uuid(),
@@ -36,10 +41,13 @@ export const products = [
     originalPrice: 109.99,
     bgColor: "#ebebeb",
     category: "Sport_Shoes",
+    rating: [4, 233],
+    availableSizes: [6, 7, 9, 10, 11],
     availableVariants: [
       { color: "#ff0000", name: "Eclipse Edition" },
       { color: "#0000ff", name: "Limited Edition" },
     ],
+    material: "Leather",
   },
   {
     _id: uuid(),
@@ -49,10 +57,13 @@ export const products = [
     originalPrice: 49.99,
     bgColor: "#cccccc",
     category: "Sport_Shoes",
+    rating: [2, 125],
+    availableSizes: [6, 7, 9, 10, 11, 12],
     availableVariants: [
       { color: "#00ff00", name: "Special Edition" },
       { color: "#0000ff", name: "Limited Edition" },
     ],
+    material: "Leather",
   },
   {
     _id: uuid(),
@@ -62,8 +73,117 @@ export const products = [
     originalPrice: 69.99,
     bgColor: "#d9d9d9",
     category: "Casual_Shoes",
+    rating: [5, 152],
+    availableSizes: [6, 7, 9, 10, 11, 12],
     availableVariants: [
       { color: "#ff0000", name: "Inferno Edition" },
     ],
+    material: "Leather",
   },
+  {
+    _id: uuid(),
+    name: "Revolve",
+    image: "https://ik.imagekit.io/Phantomcat20/images/shoe4.png?updatedAt=1684678721230",
+    price: 89.99,
+    originalPrice: 99.99,
+    bgColor: "#eeeeee",
+    rating: [3, 252],
+    category: "Sport_Shoes",
+    availableSizes: [8, 9, 10, 11, 12],
+    availableVariants: [
+      { color: "#00ff00", name: "Special Edition" },
+    ],
+    material: "Synthetic",
+  },
+  {
+    _id: uuid(),
+    name: "Elevate",
+    image: "https://ik.imagekit.io/Phantomcat20/images/shoe4.png?updatedAt=1684678721240",
+    price: 69.99,
+    originalPrice: 79.99,
+    bgColor: "#dddddd",
+    category: "Casual_Shoes",
+    rating: [5, 52],
+    availableSizes: [7, 8, 9, 10, 11],
+    availableVariants: [
+      { color: "#ff0000", name: "Fire Edition" },
+    ],
+    material: "Canvas",
+  },
+  {
+    _id: uuid(),
+    name: "Glamour",
+    image: "https://ik.imagekit.io/Phantomcat20/images/shoe4.png?updatedAt=1684678721250",
+    price: 129.99,
+    originalPrice: 149.99,
+    bgColor: "#f9f9f9",
+    category: "Dress_Shoes",
+    rating: [2, 125],
+    availableSizes: [7, 8, 9, 10, 11],
+    availableVariants: [
+      { color: "#800080", name: "Elegant Edition" },
+    ],
+    material: "Leather",
+  },
+  {
+    _id: uuid(),
+    name: "Elite",
+    image: "https://ik.imagekit.io/Phantomcat20/images/shoe4.png?updatedAt=1684678721260",
+    price: 149.99,
+    originalPrice: 169.99,
+    bgColor: "#f1f1f1",
+    category: "Dress_Shoes",
+    rating: [3, 180],
+    availableSizes: [8, 9, 10, 11],
+    availableVariants: [
+      { color: "#ff8c00", name: "Premium Edition" },
+    ],
+    material: "Synthetic",
+  },
+  {
+    _id: uuid(),
+    name: "Sophisticate",
+    image: "https://ik.imagekit.io/Phantomcat20/images/shoe4.png?updatedAt=1684678721270",
+    price: 119.99,
+    originalPrice: 139.99,
+    bgColor: "#eeeeee",
+    category: "Dress_Shoes",
+    availableSizes: [7, 8, 9, 10],
+    rating: [5, 145],
+    availableVariants: [
+      { color: "#000080", name: "Classic Edition" },
+    ],
+    material: "Synthetic",
+  },
+  {
+    _id: uuid(),
+    name: "Elegance",
+    image: "https://ik.imagekit.io/Phantomcat20/images/shoe4.png?updatedAt=1684678721280",
+    price: 89.99,
+    originalPrice: 99.99,
+    bgColor: "#f2f2f2",
+    category: "Dress_Shoes",
+    rating: [3, 63],
+    availableSizes: [8, 9, 10, 11],
+    availableVariants: [
+      { color: "#ff0000", name: "Ruby Edition" },
+      { color: "#000000", name: "Onyx Edition" },
+    ],
+    material: "Canvas",
+  },
+  {
+    _id: uuid(),
+    name: "Royal",
+    image: "https://ik.imagekit.io/Phantomcat20/images/shoe4.png?updatedAt=1684678721290",
+    price: 179.99,
+    originalPrice: 199.99,
+    bgColor: "#f9f9f9",
+    category: "Dress_Shoes",
+    rating: [4, 150],
+    availableSizes: [8, 9, 10],
+    availableVariants: [
+      { color: "#ff00ff", name: "Regal Edition" },
+    ],
+    material: "Synthetic",
+  }
 ];

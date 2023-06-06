@@ -1,18 +1,24 @@
 import React from 'react';
+import { useUserData } from '../../context/userContext';
 
-const AddressCard = ({ name, street, state, city, zipcode, country, phoneNumber }) => {
+const AddressCard = (address) => {
+  const { _id,name, street, state, city, zipcode, country, phoneNumber } = address
+  const {removeAddress,editAddress,addressModalVisible,userDispatch} = useUserData() 
+const openAddressModal = (address) => {
+  userDispatch({type:'openAddress'})
+  // userDispatch(type:'')
+}
   return (
     <div>
-      <h2>Address</h2>
-      <p><strong>Name:</strong> {name}</p>
-      <p><strong>Street:</strong> {street}</p>
-      <p><strong>City:</strong> {city}</p>
-      <p><strong>State:</strong> {state}</p>
-      <p><strong>ZIP Code:</strong> {zipcode}</p>
-      <p><strong>Country:</strong> {country}</p>
-      <p><strong>Phone Number:</strong> {phoneNumber}</p>
-      <button>Edit</button>
-      <button>Remove</button>
+      <p><strong>{name}</strong> </p>
+      <p><strong>{phoneNumber}</strong> </p>
+      <p><strong>{street}</strong> </p>
+      <p><strong>{city}</strong> </p>
+      <p><strong>{state}</strong> </p>
+      <p><strong>{country}</strong> </p>
+      <p><strong>{zipcode}</strong> </p>
+      <button onClick={()=>openAddressModal(address)}>Edit</button>
+      <button onClick={()=>removeAddress(_id)}>remove</button>
     </div>
   );
 };

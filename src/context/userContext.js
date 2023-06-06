@@ -11,7 +11,10 @@ const UserContextProvider = ({children}) => {
                 break;
             case "addAddress":
                 return {...userState,address:action.payload}
-
+            case "removeAddress":
+                return {...userState,address:action.payload}
+            case "openAddress":
+                return {...userState,addressModalVisible:!userState.addressModalVisible}
             default:
                 break;
         }
@@ -25,7 +28,6 @@ const UserContextProvider = ({children}) => {
                   'authorization': userToken,
                 },
               });
-          
               if (response.ok) {
                 const data = await response.json();
                 console.log(data.address)
@@ -40,6 +42,58 @@ const UserContextProvider = ({children}) => {
             }
           };
 
+          const addAddress = async(address) => {
+            try{
+              const response = await fetch('/api/user/address',{
+                method:'POST',
+                headers:{
+                  'authorization' : userToken,
+                },
+                body: JSON.stringify({
+                  address: address,
+                }),
+              });
+              if (response.ok) {
+                const data = await response.json();
+                console.log(data.address)
+                const addresses = data.address;
+                userDispatch({type:"addAddress",payload:addresses})
+              } else {
+                const errorData = await response.json();
+                console.error('Error retrieving addresses:', errorData);
+              }
+              }
+              catch(error){
+                console.error('Error retrieving addresses:', error)
+              }
+            }
+
+          const editAddress = async(address,addressId) => {
+            try{
+              const response = await fetch(`/api/user/address/${addressId}`,{
+                method:'POST',
+                headers:{
+                  'authorization' : userToken,
+                },
+                body: JSON.stringify({
+                  address: address,
+                }),
+              });
+              if (response.ok) {
+                const data = await response.json();
+                console.log(data.address)
+                const addresses = data.address;
+                userDispatch({type:"addAddress",payload:addresses})
+              } else {
+                const errorData = await response.json();
+                console.error('Error retrieving addresses:', errorData);
+              }
+              }
+              catch(error){
+                console.error('Error retrieving addresses:', error)
+              }
+            }
+
           const removeAddress = async (addressId) => {
             try {
               const response = await fetch(`/api/user/address/${addressId}`, {
@@ -50,16 +104,19 @@ const UserContextProvider = ({children}) => {
               });
           
               if (response.ok) {
-                console.log('Address removed successfully');
+                const data = await response.json();
+                console.log(data.address)
+                const addresses = data.address;
+                userDispatch({type:"addAddress",payload:addresses})
               } else {
                 const errorData = await response.json();
-                console.error('Error removing address:', errorData);
+                console.error('Error retrieving addresses:', errorData);
               }
-            } catch (error) {
-              console.error('Error removing address:', error);
-            }
+              }
+              catch(error){
+                console.error('Error retrieving addresses:', error)
+              }
           };
-          
 
           useEffect(()=>{
             getAddresses()
@@ -68,12 +125,14 @@ const UserContextProvider = ({children}) => {
         const intialUserData = {
             name: "",
             email: "",
-            address: {},
+            selectedAddress:{},
+            addressModalVisible:false,
+            address: [],
             
         }
         const [userData,userDispatch] = useReducer(userReducer,intialUserData)
         
-   return(<userContext.Provider value={{getAddresses,removeAddress}}>
+   return(<userContext.Provider value={{getAddresses,editAddress,addAddress,removeAddress,userData,userDispatch}}>
         {children}
     </userContext.Provider>)
 }

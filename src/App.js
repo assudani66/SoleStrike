@@ -14,12 +14,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <NavBarComponent/>
         <FilterContextProvider>
           <CartContextProvider>
             <AuthContextProvider>
               <UserContextProvider>
                 <WishListContextProvider>
+                <NavBarComponent/>
                 <AppRouter/>
               </WishListContextProvider>
               </UserContextProvider>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFilterContext } from '../../context/filterContext'
+import Accordion from './FilterAccordian'
 
 const SideBarFilter = () => {
     const {activeFilters,filterDispatch} = useFilterContext()
@@ -7,9 +8,8 @@ const SideBarFilter = () => {
     const rating = [{display:'⭐',value:1},{display:'⭐⭐',value:2},{display:'⭐⭐⭐',value:3},{display:'⭐⭐⭐⭐',value:4},{display:'⭐⭐⭐⭐⭐',value:5}]
     return (
         <div>
-          <input
-            onChange={(e) => filterDispatch({ type: "searchName", payload: e.target.value })}
-          />
+          <h1>Filters</h1>
+          <Accordion heading="Categories">
           <label htmlFor='casualShoes'>Casual Shoes</label>
           <input
             id='casualShoes'
@@ -40,12 +40,18 @@ const SideBarFilter = () => {
             }
             value='Dress_Shoes'
           />
+          </Accordion>
+          <Accordion heading={'Price'}>
           <input type='range' step={10} onChange={(e)=>filterDispatch({type:"priceRange",payload:e.target.value})}/>
+          </Accordion>
+          <Accordion heading={"Size"}>
           <div style={{display:"flex"}}>
             <div style={{display:"block"}}>
               {sizes.map(size=><div value={size} className='shoeSize' onClick={()=>filterDispatch({type:"activeSize",payload:size})}><div className='shoeSizeText'>{size}</div></div>)}
             </div>
           </div>
+          </Accordion>
+          <Accordion heading={"Material"}>
           <label>Leather
           <input
             id='Leather'
@@ -79,10 +85,13 @@ const SideBarFilter = () => {
             value='Synthetic'
           />
           </label>
+          </Accordion>
+          <Accordion heading={'Rating'}>
           <div>{rating.map(({display,value})=><div style={{cursor:"pointer"}} onClick={()=>filterDispatch({type:'ratingSelect',payload
           :value})}>{display}</div>)
             }
           </div>
+          </Accordion>
         </div>
       )
     }

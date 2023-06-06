@@ -1,0 +1,77 @@
+.productDetails{
+    display: flex;
+    font-family: lato,sans-serif;
+    margin-top: 30px;
+    margin: auto;
+}
+.productDetailsImage{
+    width: 500px;
+}
+.productDetailsOptions{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+.heading{
+    font-size: 40px;
+}
+.description{
+    font-size: 28.93px;
+    margin: 0px;
+    color: #838383;
+}
+.rating{
+    margin: 0px;
+}
+.baseInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.price{
+    font-size: 60px;
+}
+.rupeesSign{
+    font-size:30px
+}
+.sizeRow {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Adjust the gap value as per your preference */
+  }
+.productDetailsShoeSize {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .productDetailShoeSizeText {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .shoeSizeText.selected {
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .colorSelection{
+    display: flex;
+    gap: 10px;
+  }
+
+  .colorOption{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }

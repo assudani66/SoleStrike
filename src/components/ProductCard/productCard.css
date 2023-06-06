@@ -14,11 +14,20 @@
     border-radius:10px;
   }
   
-.addToWishListBtn{
-border-radius: 50%;
-max-width: fit-content;
-}
-
+  .addToWishListBtn {
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
   .productData {
     display: flex;
     flex-direction: column;
@@ -35,6 +44,7 @@ max-width: fit-content;
   .productPrice{
     font-size: 22.93px;
   }
+
   .productCard h4 {
     font-size: 22.93px;
     margin-top: 0px;
@@ -53,16 +63,20 @@ max-width: fit-content;
     font-weight: bold;
   }
   
-  .productCard button {
+    .addToCartBtn {
     margin-top: 10px;
+    border-radius: 25px;
     padding: 10px 20px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+    max-width: fit-content;
+    color: black;
+    border: 2px solid black;
     cursor: pointer;
   }
   
+  .addToCartBtn .selected{
+    color: white;
+    background: #000;
+  }
   .productCard p span {
     margin-right: 5px;
   }

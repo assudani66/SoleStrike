@@ -1,0 +1,93 @@
+.productCard {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: left;
+    justify-content: left;
+    padding: 0px;
+    background-color: #f7f7f7;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-family: lato,sans-serif;
+    border-radius:10px;
+  }
+  
+.addToWishListBtn{
+border-radius: 50%;
+max-width: fit-content;
+}
+
+  .productData {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .productNameInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .productCard img {
+    width: 100%;
+  }
+  .productPrice{
+    font-size: 22.93px;
+  }
+  .productCard h4 {
+    font-size: 22.93px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+
+  .ruppesSign{
+    font-size: 13.92px;
+  }
+  
+  .productCard p {
+    margin: 5px 0;
+  }
+  
+  .productCard span {
+    font-weight: bold;
+  }
+  
+  .productCard button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .productCard p span {
+    margin-right: 5px;
+  }
+
+  .parentClass {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .parentClass {
+      justify-content: flex-start;
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    .parentClass {
+      justify-content: center;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .parentClass {
+      justify-content: flex-start;
+    }
+  }
+  

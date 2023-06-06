@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import "./store.css";
 import { useFilterContext } from '../../context/filterContext';
-
+import { BsFilterLeft } from 'react-icons/bs';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import SideBarFilter from "../../components/Filters/SideBarFilter";
 
 const Store = () => {
   const { filteredProductListing } = useFilterContext();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [videoList, setVideoList] = useState([]);
   const [cardCount, setCardCount] = useState(4);
 
   const toggleSidebar = () => {
@@ -34,9 +33,7 @@ const Store = () => {
   return (
     <div className="App">
         <button className="burger-menu" onClick={toggleSidebar}>
-          <span className="burger-line" />
-          <span className="burger-line" />
-          <span className="burger-line" />
+          <BsFilterLeft/>
         </button>
       <div className="content">
       <div className={sidebarOpen ? "sidebar open" : "sidebar"}>

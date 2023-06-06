@@ -1,0 +1,25 @@
+.accordian{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid grey;
+    margin: 5px
+}
+
+.accordianHeading{
+    cursor: pointer;
+    margin: 10px 0px;
+    font-family: lato;
+    font-size: 26px;
+    display: flex;
+}
+
+.accordianHeading h4{
+    margin: 0px;
+    margin-bottom: 0px;
+}
+
+.filterCheckBox{
+    margin: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+}

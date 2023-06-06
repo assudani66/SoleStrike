@@ -1,57 +1,55 @@
-/* .sidebar {
-    position: fixed;
-    top: 65px;
-    left: 0px;
-    width: 280px;
-    height: 100%;
-    background-color: #f5f5f5;
-    transition: left 0.3s ease-in-out;
-  }
-  
-  .sidebar.open {
-    left: 0;
-  }
-  
-  .sidebar-header {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-    color: #333;
-    margin-right: 10px;
-  }
-  
-  .sidebar-heading {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0;
-    flex-grow: 1;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #333;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: calc(100% - 30px);
-  }
-  
-  .sidebar-content {
-    padding: 20px;
-  }
-  
-  .sidebar-section {
-    margin-bottom: 20px;
-  }
-  
-  .sidebar-section h3 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-  }
-   */
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.filterContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.heading{
+  margin: 0px;
+  font-family: lato;
+  font-size: 26px;
+}
+
+.sizeFilterContainer{
+  display: flex;
+  margin: 10px;
+}
+
+.shoeSize {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.shoeSizeText {
+  font-size: 10px;
+  font-weight: bold;
+}
+.shoeSizeText.selected {
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.shoeSize.selected {
+  background-color: #000;
+}
+
+.sizeRow {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* Adjust the gap value as per your preference */
+}
+
+
+.ratingOptions{
+  display: flex;
+  margin: 10px;
+  cursor: pointer;
+}

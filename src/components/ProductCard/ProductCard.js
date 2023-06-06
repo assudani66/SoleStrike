@@ -11,13 +11,13 @@ const ProductCard = (product) => {
   const { addTowishList } = useWishList()
   const [addedToCart,setAddedToCart] = useState(false)
   const [addedToWishList,setAddedToWishList] = useState(false)
-  // const addedToCart = () => 
+  
   const navigate = useNavigate()
   return (
-    <div className='productCard' onClick={()=>navigate(`/product-details/${_id}`)}>
+    <div className='productCard' >
       <button className='addToWishListBtn' onClick={() => {addTowishList(product)
       setAddedToWishList(!addedToWishList)}}><AiFillHeart/></button>
-      <img className='productImage' src={image} alt={name}/>
+      <img className='productImage' onClick={()=>navigate(`/product-details/${_id}`)} src={image} alt={name}/>
       <div className='productData'>
       <div className='productNameInfo'>
       <h4 className='productName'>{name}</h4>

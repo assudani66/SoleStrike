@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from '../../node_modules/react-router-dom/dist/index'
-import HomePage from '../pages/HomePage'
+import HomePage from '../pages/HomePage/HomePage'
 import WishList from '../pages/wishlist'
 import ProductDetails from '../pages/ProductDetails/productDetails'
 import MockmanAPI from '../pages/mockman'

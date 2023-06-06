@@ -6,7 +6,6 @@ const AddressCard = (address) => {
   const {removeAddress,editAddress,addressModalVisible,userDispatch} = useUserData() 
 const openAddressModal = (address) => {
   userDispatch({type:'openAddress'})
-  // userDispatch(type:'')
 }
   return (
     <div>

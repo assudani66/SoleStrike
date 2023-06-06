@@ -4,20 +4,20 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: "Casual Shoes",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "Stylish and comfortable footwear for everyday wear.",
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: "Dress Shoes",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      "Elegant and sophisticated footwear for formal occasions",
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "Sports shoe",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "Durable and performance-enhancing footwear for athletic activities",
   },
 ];

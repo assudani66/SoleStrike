@@ -33,6 +33,11 @@ const filterReducer = (activeFilter, action) => {
             activeCategory:[...activeFilter.activeCategory,action.payload]
           };
         }
+      case "activeCategoryFromLandingPage":
+        return {
+            ...activeFilter,
+            activeCategory:[action.payload]
+          };
         case "priceRange":
             return{
                 ...activeFilter,priceRange:action.payload

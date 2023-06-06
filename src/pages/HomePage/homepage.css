@@ -1,0 +1,26 @@
+.shoesCategory{
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    background-color: #f7f7f7;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-family: lato,sans-serif;
+    border-radius:10px;
+    text-align: center;
+}
+
+
+.homePage{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.categories{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}

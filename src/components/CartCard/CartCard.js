@@ -23,12 +23,11 @@ const CartCard = (product) => {
     addToCart(product)
   } 
   return (
-    <div className='productCard' >
+    <div className='cartCard' >
       <img style={{width:'10%'}} src={image} alt={name}/>
       <p>{name}</p>
-      <p>price:{price}</p>
-      <div>availableVariants:<span>{availableVariants.map(({color,name})=><span>name</span>)}</span></div>
-      <p>price:{price}</p>
+      <p>{price}</p>
+      <div><span>{availableVariants.map(({color,name})=><span>name</span>)}</span></div>
       {isInCart && <div>
       <button onClick={()=>updateItemQuantity(product,"increment")}>+</button>
       <p>{checkQuantity ? qty : 1}</p>

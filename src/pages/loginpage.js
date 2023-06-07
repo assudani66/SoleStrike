@@ -9,8 +9,8 @@ const LoginPage = () => {
     <div>
       <p>Status:{isLoggedIn > 0 ? 'online' : 'offline'}</p>
         {!isLoggedIn && <Login/>}
-       <button onClick={()=>loginDispatch({type:"logout"})}>Logout</button>
-       {!isLoggedIn && <SignUp/>}
+       <button className='' onClick={()=>loginDispatch({type:"logout"})}>Logout</button>
+       {/* {!isLoggedIn && <SignUp/>} */}
     </div>
   )
 }

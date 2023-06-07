@@ -10,14 +10,29 @@ const SideBarFilter = () => {
     const rating = [{display:'⭐',value:1},{display:'⭐⭐',value:2},{display:'⭐⭐⭐',value:3},{display:'⭐⭐⭐⭐',value:4},{display:'⭐⭐⭐⭐⭐',value:5}]
     return (
         <div className='filterContainer'>
+          <div >
           <h1 className='heading'>Filters</h1>
+          <button onClick={()=>{filterDispatch({type:'resetFilter'})}}>clear</button>
+          </div>
           <Accordion heading="Categories">
           <CheckBoxCategory value="Casual_Shoes" displayName="Casual Shoes" filter="activeCategory" />
           <CheckBoxCategory value="Sport_Shoes" displayName="Sport Shoes" filter="activeCategory" />
           <CheckBoxCategory value="Dress_Shoes" displayName="Dress Shoes" filter="activeCategory" />
           </Accordion>
           <Accordion heading={'Price'}>
-          <input type='range' step={10} onChange={(e)=>filterDispatch({type:"priceRange",payload:e.target.value})}/>
+          <div>
+          <input type='range' value={activeFilters.priceRange} step={10} onChange={(e)=>filterDispatch({type:"priceRange",payload:e.target.value})}/>
+          <div className='priceRange'>
+            <div className='minPrice'>
+              <p>10</p>
+              <p style={{fontSize:'12px'}}>Max Price</p>
+            </div>
+            <div className='maxPrice'>
+              <p >{activeFilters.priceRange}</p>
+              <p style={{fontSize:'12px'}}>Max Price</p>
+            </div>
+          </div>
+          </div>
           </Accordion>
           <Accordion heading={"Size"}>
           <div className='sizeFilterContainer'>
@@ -36,7 +51,6 @@ const SideBarFilter = () => {
 </div>
           </Accordion>
           <Accordion heading={"Material"}>
-            {console.log(activeFilters)}
             <CheckBoxMaterial value='Leather' displayName="Leather" filter="activeMaterial"/>
             <CheckBoxMaterial value='Canvas' displayName="Canvas" filter = "activeMaterial"/>
             <CheckBoxMaterial value='Synthetic' displayName="Synthetic" filter = "activeMaterial"/>

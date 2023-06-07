@@ -7,7 +7,7 @@ const LoginPage = () => {
     const {loginInfo:{isLoggedIn},loginDispatch,loginUser} = useAuth()
   return (
     <div>
-      <p>Status:{isLoggedIn > 0 ? 'online' : 'offline'}</p>
+      <p>Status:{isLoggedIn > 0 ? 'you are Logged In' : 'you are Logged Out'}</p>
         {!isLoggedIn && <Login/>}
        <button className='' onClick={()=>loginDispatch({type:"logout"})}>Logout</button>
        {/* {!isLoggedIn && <SignUp/>} */}

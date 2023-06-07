@@ -10,7 +10,7 @@ const activeFiltersInitialValue = {
     activeCategory:[],
     activeSize:'ALL',
     ratingSelect:'ALL',
-    priceRange: 150,
+    priceRange: 100,
     sortBy:"NONE",
     activeMaterial:[]
 }
@@ -33,6 +33,8 @@ const filterReducer = (activeFilter, action) => {
             activeCategory:[...activeFilter.activeCategory,action.payload]
           };
         }
+      case "resetFilter":
+        return activeFiltersInitialValue
       case "activeCategoryFromLandingPage":
         return {
             ...activeFilter,
@@ -82,7 +84,6 @@ const filterReducer = (activeFilter, action) => {
   activeFilters.activeMaterial.includes(product.material)
   )
   : categoryFiltered;
-
 
   const ratingFiltered = activeFilters.ratingSelect === "ALL" ? materialFiltered : materialFiltered.filter((product)=>product.rating[0] >= activeFilters.ratingSelect)
   console.log()

@@ -37,6 +37,34 @@
   color: white;
 }
 
+.maxPrice{
+  display: flex;
+  flex-direction: column;
+}
+
+.maxPrice p{
+  margin: 0px;
+  font-size: 21px;
+}
+
+.minPrice{
+  display: flex;
+  flex-direction: column;
+}
+
+.minPrice p{
+  margin: 0px;
+  font-size: 21px;
+}
+
+.priceRange{
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 45px;
+}
+.label{
+  font-size: 16px;
+}
 .shoeSize.selected {
   background-color: #000;
 }

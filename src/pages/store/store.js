@@ -7,7 +7,7 @@ import SideBarFilter from "../../components/Filters/SideBarFilter";
 
 const Store = () => {
   const { filteredProductListing } = useFilterContext();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [cardCount, setCardCount] = useState(4);
 
   const toggleSidebar = () => {

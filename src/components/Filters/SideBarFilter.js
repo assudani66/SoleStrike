@@ -10,9 +10,9 @@ const SideBarFilter = () => {
     const rating = [{display:'⭐',value:1},{display:'⭐⭐',value:2},{display:'⭐⭐⭐',value:3},{display:'⭐⭐⭐⭐',value:4},{display:'⭐⭐⭐⭐⭐',value:5}]
     return (
         <div className='filterContainer'>
-          <div >
-          <h1 className='heading'>Filters</h1>
-          <button onClick={()=>{filterDispatch({type:'resetFilter'})}}>clear</button>
+          <div className='heading'>
+          <h1>Filters</h1>
+          <button onClick={()=>{filterDispatch({type:'resetFilter'})}}>Clear</button>
           </div>
           <Accordion heading="Categories">
           <CheckBoxCategory value="Casual_Shoes" displayName="Casual Shoes" filter="activeCategory" />

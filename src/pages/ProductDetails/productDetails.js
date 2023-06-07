@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from '../../../node_modules/react-router-dom/dist/index'
-import { useProductInfo } from '../../hooks/useProduct'
-import { useCart } from '../../context/cartContext'
-import { useWishList } from '../../context/wishListContext'
-import { AiFillHeart } from 'react-icons/ai';
+import { useParams } from '../../../node_modules/react-router-dom/dist/index'
 import "./productDetails.css"
+import { AddToCartBtn, AddtoWishListBtn } from '../../components/ProductCard/buttons'
 
 const ProductDetails = () => {
   const {productId} =  useParams()
@@ -15,7 +12,6 @@ const ProductDetails = () => {
       const productData = await response.json();
       setProductInfo(productData);
     };
-
     getProductInfo();
   }, [productId]);
 
@@ -23,7 +19,11 @@ const ProductDetails = () => {
 
   return(
     <div className='productDetails'>
+      <div className='productDetailsImageDiv'>
       <img className='productDetailsImage' src={image}/>
+      <AddToCartBtn product={productInfo.product}/>
+      </div>
+      <AddtoWishListBtn product={productInfo.product}/>
       <div className='productDetailsOptions'>
         <div className='baseInfo'>
           <h1 className='heading'>{name}</h1>

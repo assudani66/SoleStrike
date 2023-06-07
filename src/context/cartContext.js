@@ -1,4 +1,7 @@
 import React, { createContext, useContext, useEffect, useReducer, useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast';
+
+const notify = (message) => toast(message);
 
 const cartContext = createContext()
 
@@ -55,6 +58,7 @@ const CartContextProvider = (props) => {
           }),
         });
         const data = await response.json();
+        notify("Added To Cart")
         cartDispatch({type:"addItem",payload:data.cart,selectedProduct:product})
         console.log(data.cart)
       }
@@ -77,7 +81,7 @@ const removeCartItem = async (product) => {
     });
     const data = await response.json();
     cartDispatch({type:"addItem",payload:data.cart,selectedProduct:product})
-    console.log(data.cart)
+    notify("removed from Cart")
   } catch (error) {
     console.error(error);
   }

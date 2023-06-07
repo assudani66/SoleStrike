@@ -1,4 +1,7 @@
 import React, { createContext, useContext, useEffect, useReducer, useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast';
+
+const notify = (message) => toast(message);
 
 const wishListContext = createContext()
 
@@ -55,6 +58,7 @@ const WishListContextProvider = (props) => {
           }),
         });
         const data = await response.json();
+        notify("Added To Wishlist")
         wishListDispatch({type:"addItem",payload:data.wishlist,selectedProduct:product})
         console.log(data.wishlist)
       }
@@ -76,14 +80,15 @@ const removeWishListItem = async (product) => {
       }),
     });
     const data = await response.json();
+    notify("Removed from Wishlist")
     wishListDispatch({type:"addItem",payload:data.wishlist,selectedProduct:product})
     console.log(data.wishlist)
   } catch (error) {
     console.error(error);
   }
 }
-const updateItemQuantity = async (product,type) => {
 
+const updateItemQuantity = async (product,type) => {
   try {
     if(product.qty >= 1){
     const response = await fetch(`/api/user/wishlist/${product._id}`, {

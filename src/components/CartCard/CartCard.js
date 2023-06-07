@@ -3,7 +3,10 @@ import { useCart } from '../../context/cartContext';
 import { useWishList } from '../../context/wishListContext';
 import './cartCard.css';
 import { FaTimes } from 'react-icons/fa';
+import { AddtoWishListBtn, RemovetoWishListBtn } from '../ProductCard/buttons';
+import toast, { Toaster } from 'react-hot-toast';
 
+const notify = (message) => toast(message);
 const CartCard = (product) => {
   const {
     _id,
@@ -32,11 +35,14 @@ const CartCard = (product) => {
 
   const moveToCartFromWishList = (product) => {
     removeWishListItem(product);
+    notify("Moved to Cart")
     addToCart(product);
   };
 
   return (
     <div className="cart productDetails">
+      {isInCart && <AddtoWishListBtn product={product}/>}
+      {!isInCart && <RemovetoWishListBtn product={product}/>}
       <img className="cart productDetailsImage" src={image} alt={name} />
       <div className="cart productDetailsOptions">
         <div className="baseInfo">
@@ -72,6 +78,7 @@ const CartCard = (product) => {
                   ></div>
                 ))}
               </div>
+              
               {isInCart && (
                 <div className="quantitySection">
                   <button className='quantityButton' onClick={() => updateItemQuantity(product, "increment")}>
@@ -96,6 +103,7 @@ const CartCard = (product) => {
                 </div>
               )}
             </div>
+            
           </div>
         </div>
       </div>

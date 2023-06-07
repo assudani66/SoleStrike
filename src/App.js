@@ -1,3 +1,4 @@
+import { Toaster } from "../node_modules/react-hot-toast/dist/index";
 import { BrowserRouter } from "../node_modules/react-router-dom/dist/index";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
@@ -20,6 +21,7 @@ function App() {
               <UserContextProvider>
                 <WishListContextProvider>
                 <NavBarComponent/>
+                <Toaster/>
                 <AppRouter/>
               </WishListContextProvider>
               </UserContextProvider>

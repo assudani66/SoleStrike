@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/authContext';
-
+import "./SignUp.css"
 const SignUp = () => {
   const { signUpUser } = useAuth();
 
@@ -25,7 +25,7 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className="sign-up-container">
       <form onSubmit={handleSubmit}>
         <label htmlFor="firstName">First Name:</label>
         <input

@@ -11,14 +11,6 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo" onClick={()=>navigate("/store")}>soleStrike</div>
-      <div className="dropdown">
-        <span>Categories</span>
-        <div className="dropdown-content">
-          <p>Casual Shoe</p>
-          <p>Dress Shoe</p>
-          <p>Sports Shoe</p>
-        </div>
-      </div>
       <Link to="/" className="nav-links">What's New</Link>
       <div className="search-bar">
         <input  onChange={(e) => filterDispatch({ type: "searchName", payload: e.target.value })} type="text" className="search-input" placeholder="Search here" />

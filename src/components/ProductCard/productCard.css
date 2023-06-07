@@ -28,6 +28,12 @@
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
   }
+
+.added{
+    background-color: black;
+    color: white;
+  }
+
   .productData {
     display: flex;
     flex-direction: column;
@@ -54,7 +60,7 @@
   .ruppesSign{
     font-size: 13.92px;
   }
-  
+
   .productCard p {
     margin: 5px 0;
   }

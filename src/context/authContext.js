@@ -90,6 +90,8 @@ const AuthContextProvider = (props) => {
 
   const initialState = {
     token:"",
+    loggedInEmail:"",
+    userDetails:"",
     isLoggedIn:false
   };
 

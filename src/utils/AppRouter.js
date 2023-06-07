@@ -9,19 +9,20 @@ import Cart from '../pages/CartPage/cartpage'
 import UserProfile from '../pages/userProfile'
 import LoginPage from '../pages/loginpage'
 import CheckOutPage from '../pages/checkoutPage/checkOutPage'
+import { RequiresAuth } from './RequiresAuth'
 
 const AppRouter = () => {
   return (
     <>
         <Routes>
             <Route path="/" element={<HomePage/>}/>
-            <Route path="/wishList" element={<WishList/>}/>
+            <Route path="/wishList" element={<RequiresAuth><WishList/></RequiresAuth>}/>
             <Route path="/store" element={<Store/>}/>
-            <Route path="/cart" element={<Cart/>}/>
+            <Route path="/cart" element={<RequiresAuth><Cart/></RequiresAuth>}/>
             <Route path="/checkOut" element={<CheckOutPage/>}/>
             <Route path="/product-details/:productId" element={<ProductDetails/>}/>
             <Route path="/mockman" element={<MockmanAPI/>}/>
-            <Route path="/user-profile" element={<UserProfile/>}/>
+            <Route path="/user-profile" element={<RequiresAuth><UserProfile/></RequiresAuth>}/>
             <Route path="/login" element={<LoginPage/>}/>
         </Routes>
     </>

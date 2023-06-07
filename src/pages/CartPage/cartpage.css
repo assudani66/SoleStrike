@@ -1,0 +1,21 @@
+.cartLayout{
+display: flex;
+justify-content: space-between;
+margin:0px 45px;
+gap: 50px;
+font-family: lato;
+}
+.cartItems{
+display: flex;
+flex-direction: column;
+}
+.cartValue{
+display: flex;
+flex-direction: column;
+}
+.cartValue p{
+    font-size: 24px;
+}
+.emptyCard{
+    text-align: left;
+}

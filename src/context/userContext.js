@@ -47,7 +47,6 @@ const UserContextProvider = ({children}) => {
               });
               if (response.ok) {
                 const data = await response.json();
-                console.log(data.address)
                 const addresses = data.address;
                 userDispatch({type:"addAddress",payload:addresses})
               } else {

@@ -1,0 +1,14 @@
+.order{
+    display: flex;
+    justify-content: space-between;
+}
+.orderSummary{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+.checkOut{
+    display: flex;
+    margin: 45px;
+    justify-content: space-between;
+}

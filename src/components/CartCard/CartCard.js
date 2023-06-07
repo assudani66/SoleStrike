@@ -84,7 +84,7 @@ const CartCard = (product) => {
                     </button>
                   )}
                   <button onClick={() => removeCartItem(product)} className="removeButton">
-                    <FaTimes />
+                    <FaTimes />RemoveItem
                   </button>
                 </div>
               )}
@@ -99,7 +99,6 @@ const CartCard = (product) => {
           </div>
         </div>
       </div>
-      <hr/>
     </div>
   );
 };

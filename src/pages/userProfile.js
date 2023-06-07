@@ -4,7 +4,7 @@ import { useUserData } from '../context/userContext'
 
 const UserProfile = () => {
 const {getAddresses,removeAddress} = useUserData()
-getAddresses()
+// getAddresses()
   return (
     <div>
     </div>

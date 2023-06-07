@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes } from '../../node_modules/react-router-dom/dist/index'
+import { Navigate, Route, Routes } from '../../node_modules/react-router-dom/dist/index'
 import HomePage from '../pages/HomePage/HomePage'
 import WishList from '../pages/wishlist'
 import ProductDetails from '../pages/ProductDetails/productDetails'
@@ -24,6 +24,7 @@ const AppRouter = () => {
             <Route path="/mockman" element={<MockmanAPI/>}/>
             <Route path="/user-profile" element={<RequiresAuth><UserProfile/></RequiresAuth>}/>
             <Route path="/login" element={<LoginPage/>}/>
+            <Route path="/video" element={<Navigate to="https://bit.ly/loom-video12"/>} />
         </Routes>
     </>
   )

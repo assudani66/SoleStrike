@@ -1,0 +1,125 @@
+/* cartCard.css */
+
+.cart.productDetails {
+    display: flex;
+    font-family: 'Lato', sans-serif;
+    margin-top: 30px;
+    margin: auto;
+  }
+  
+  .cart.productDetailsImage {
+    width: 400px;
+    height: fit-content;
+  }
+  
+  .cart.productDetailsOptions {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cart .heading {
+    font-size: 22px; /* Updated font size */
+  }
+  
+  .cart .description {
+    font-size: 16px; /* Updated font size */
+    margin: 0px;
+    color: #838383;
+  }
+  
+  .cart .rating {
+    margin: 0px;
+  }
+  
+  .cart .baseInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  
+  .cart .price {
+    font-size: 22px; /* Updated font size */
+  }
+  
+  .cart .rupeesSign {
+    font-size: 10px; /* Updated font size */
+  }
+  
+  .cart .sizeContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .cart .sizeRow {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .cart .productDetailsShoeSize {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .cart h3 {
+    font-size: 16px;
+    margin: 0px;
+  }
+  .cart .quantityButton {
+    
+  }
+  .cart .productDetailShoeSizeText {
+    font-size: 13.33px; /* Updated font size */
+    font-weight: bold;
+  }
+  
+  .cart .chooseColorSection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .cart .colorSelection {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .cart .colorOption {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .cart .quantitySection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .cart .removeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    transform: scale(3x);
+    cursor: pointer;
+  }
+  
+  .cart .removeButton:hover {
+    color: red;
+  }
+  
+  

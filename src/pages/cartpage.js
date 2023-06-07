@@ -8,16 +8,16 @@ const Cart = () => {
   const {cart} = useCart()
   const {userData,userDispatch} = useUserData()
   
-    return (<>
+    return (<div>
     {cart.map(product => <CartCard key={product._id} {...product} isInCart />)}
     <div>
       <h1>Total Cost</h1>
       <p>{cart.reduce((arr,curr)=>(arr + curr.price),0)}</p>
       {userData.address.map((address)=> <AddressCard {...address}/>)}
-      <button onClick={()=>userDispatch({type:'openAddress'})}>addAddress</button>
+      <button onClick={()=>userDispatch({type:'openFreshAddress',payload:"reset"})}>addAddress</button>
       {userData. addressModalVisible && <AddressModal/>}
     </div>
-    </>
+    </div>
   )
 }
 

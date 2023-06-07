@@ -4,17 +4,34 @@ const userContext = createContext()
 
 const UserContextProvider = ({children}) => {
     const userToken = localStorage.getItem("token")
+    const resetAddress = (action) => {
+      if(action === "reset"){
+        return {
+          city: '',
+          country: '',
+          name: '',
+          phoneNumber: '',
+          state: '',
+          street: '',
+          zipcode: ''
+        }
+      }
+    }
     const userReducer = (userState,action) =>{
         switch (action.type) {
             case "LoginUserData":
-                
                 break;
             case "addAddress":
                 return {...userState,address:action.payload}
+            case "editAddress":
+                return {...userState,selectedAddress:action.payload,editAddress:true}
             case "removeAddress":
                 return {...userState,address:action.payload}
             case "openAddress":
                 return {...userState,addressModalVisible:!userState.addressModalVisible}
+            case"openFreshAddress":
+                return{...userState,addressModalVisible:!userState.addressModalVisible,selectedAddress:resetAddress(action.payload),editAddress:false}
+
             default:
                 break;
         }
@@ -125,7 +142,16 @@ const UserContextProvider = ({children}) => {
         const intialUserData = {
             name: "",
             email: "",
-            selectedAddress:{},
+            selectedAddress:{
+              city: '',
+              country: '',
+              name: '',
+              phoneNumber: '',
+              state: '',
+              street: '',
+              zipcode: ''
+            },
+            editAddress:false,
             addressModalVisible:false,
             address: [],
             

@@ -90,7 +90,7 @@ export function makeServer({ environment = "development" } = {}) {
       // address management routes(private)
       this.get("/user/addresses", getAllAddressesHandler.bind(this));
       this.post("/user/address", addNewAddressHandler.bind(this));
-      this.post("/user/address/edit/:addressId", editAddressHandler.bind(this));
+      this.post("/user/address/:addressId", editAddressHandler.bind(this));
       this.delete("/user/address/:addressId", removeAddressHandler.bind(this));
     },
   });

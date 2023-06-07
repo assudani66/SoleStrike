@@ -1,0 +1,37 @@
+.address-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 760px;
+    border: 3px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .name {
+    font-size: 3.125rem; /* 50px in rem */
+  }
+  
+  .address-card p {
+    font-size: 1.625rem; /* 26px in rem */
+    margin: 0;
+  }
+  
+  .address-line {
+    display: flex;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  
+  .buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.625rem; /* 26px in rem */
+    padding: 5px;
+  }

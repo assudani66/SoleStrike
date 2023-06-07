@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './AddressModal.css';
 import { useUserData } from '../../context/userContext';
 
 const AddressModal = () => {
-    const {userDispatch,addAddress} = useUserData()
+    const {userDispatch,addAddress,editAddress,userData} = useUserData()
 
-  const [formData, setFormData] = useState({
-    city: '',
-    country: '',
-    name: '',
-    phoneNumber: '',
-    state: '',
-    street: '',
-    zipcode: ''
-  });
+  const [formData, setFormData] = useState(userData.selectedAddress);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -24,6 +16,11 @@ const AddressModal = () => {
     userDispatch({type:"openAddress"})
     addAddress(formData)
     console.log(formData);
+  };
+  const handleEdit = () => {
+    userDispatch({type:"openAddress"})
+    editAddress(formData,userData.selectedAddress._id)
+    console.log(userData);
   };
 
   const handleCancel = () => {
@@ -82,7 +79,8 @@ const AddressModal = () => {
         onChange={handleChange}
       />
       <div>
-        <button className="add" onClick={handleAdd}>Add</button>
+        {!userData.editAddress && <button className="add" onClick={handleAdd}>Add</button>}
+        {userData.editAddress && <button className="add" onClick={handleEdit}>Edit</button>}
         <button className="cancel" onClick={handleCancel}>Cancel</button>
       </div>
     </div>

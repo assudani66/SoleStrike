@@ -13,7 +13,8 @@ const AddressCard = (address) => {
   };
 
   return (
-    <div className="address-card">
+    <div className="address-card" onClick={()=>userDispatch({type:"activeAddress",payload:_id})}>
+      {console.log(userData)}
       <p className="name">{name}</p>
       <p>{phoneNumber}</p>
       <div className="address-line">

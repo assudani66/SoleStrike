@@ -74,10 +74,25 @@
     margin: 0px;
   }
   .cart .quantityButton {
-    
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .cart .quantityButton {
+    padding: 10px 10px;
+    margin-top: 10px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
   }
   .cart .productDetailShoeSizeText {
-    font-size: 13.33px; /* Updated font size */
+    font-size: 13.33px;
     font-weight: bold;
   }
   

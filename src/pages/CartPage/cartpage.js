@@ -21,7 +21,7 @@ const Cart = () => {
       <div className="cartValue">
       <h1>Total Cost</h1>
       <p><span>₹</span>{cart.reduce((arr,curr)=>(arr + curr.price*curr.qty),0)}</p>
-      <button onClick={()=>navigate("/checkout")}>Checkout</button>
+      <button className="checkout" onClick={()=>navigate("/checkout")}>Checkout</button>
       </div>
     </div>
     </div>

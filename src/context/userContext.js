@@ -18,7 +18,6 @@ const UserContextProvider = ({children}) => {
         }
       }
     }
-    const {loginInfo} = useAuth()
 
     const userReducer = (userState,action) =>{
         switch (action.type) {
@@ -34,12 +33,13 @@ const UserContextProvider = ({children}) => {
                 return {...userState,addressModalVisible:!userState.addressModalVisible}
             case"openFreshAddress":
                 return{...userState,addressModalVisible:!userState.addressModalVisible,selectedAddress:resetAddress(action.payload),editAddress:false}
-
+            case"activeAddress":
+                return {...userState,activeAddress:action.payload}
             default:
                 break;
+          }
         }
-        }
-        
+
         const getAddresses = async () => {
             try {
               const response = await fetch('/api/user/addresses', {
@@ -121,12 +121,12 @@ const UserContextProvider = ({children}) => {
                   'authorization': userToken,
                 },
               });
-          
+
               if (response.ok) {
                 const data = await response.json();
-                console.log(data.address)
                 const addresses = data.address;
                 userDispatch({type:"addAddress",payload:addresses})
+                userDispatch({type:"activeAddress",payload:""})
               } else {
                 const errorData = await response.json();
                 console.error('Error retrieving addresses:', errorData);
@@ -138,7 +138,8 @@ const UserContextProvider = ({children}) => {
           };
 
           useEffect(()=>{
-            if(loginInfo.isLoggedIn === true ){
+            const token = localStorage.getItem("token")
+            if(token){
               getAddresses()
             }
           },[])
@@ -155,6 +156,7 @@ const UserContextProvider = ({children}) => {
               street: '',
               zipcode: ''
             },
+            activeAddress:"",
             editAddress:false,
             addressModalVisible:false,
             address: [],

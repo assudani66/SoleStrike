@@ -86,7 +86,7 @@ const CartCard = (product) => {
                   </button>
                   <p>{checkQuantity ? qty : 1}</p>
                   {checkQuantity() && (
-                    <button onClick={() => updateItemQuantity(product, "decrement")}>
+                    <button className='quantityButton' onClick={() => updateItemQuantity(product, "decrement")}>
                       -
                     </button>
                   )}

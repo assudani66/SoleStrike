@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useUserData } from '../../context/userContext'
 import AddressCard from '../../components/AddressCard/AddressCard'
 import AddressModal from '../../components/AddressModal/AddressModal'
 import { useCart } from '../../context/cartContext'
 import "./checkOutPage.css"
 const CheckOutPage = () => {
+
     const {userData,userDispatch} = useUserData()
     const {cart} = useCart()
     const handleSubmit = ()=>{
@@ -33,7 +34,7 @@ const CheckOutPage = () => {
         var pay = new window.Razorpay(options);
         pay.open();
     }
-  
+    
   return (
     <div className='checkOut'>
     <div>

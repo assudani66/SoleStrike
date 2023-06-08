@@ -19,3 +19,13 @@ flex-direction: column;
 .emptyCard{
     text-align: left;
 }
+
+.checkout{
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}

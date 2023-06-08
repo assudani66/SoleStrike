@@ -4,17 +4,14 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import "./Login.css"
 import { toast } from '../../../node_modules/react-hot-toast/dist/index';
 const Login = () => {
-  const { loginInfo, loginUser } = useAuth();
+  const { loginUser } = useAuth();
   const [loginCredentials, setLoginCredentials] = useState({
     userName: 'adarshbalika@gmail.com',
     userPassword: 'adarshbalika'
   });
-  const navigate = useNavigate();
-  const location = useLocation();
+
   const handleLogin = () => {
     loginUser(loginCredentials.userName, loginCredentials.userPassword);
-    navigate(`${location?.state?.from?.pathname}`);
-    console.log(location?.state?.from?.pathname)
   };
 
   return (

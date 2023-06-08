@@ -1,12 +1,14 @@
 import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import { toast } from '../../node_modules/react-hot-toast/dist/index';
+import { useLocation, useNavigate } from '../../node_modules/react-router-dom/dist/index';
 
 const authContext = createContext();
 
 const notify =  (message) => toast(message)
 
 const AuthContextProvider = (props) => {
-
+const navigate = useNavigate()
+const location = useLocation()
   const creds = (userEmail, userPassword) => ({
     email: userEmail,
     password: userPassword
@@ -24,6 +26,7 @@ const AuthContextProvider = (props) => {
             notify("user LoggedIn")
             loginDispatch({type:"login",payload:userTokenJSON.encodedToken,login:true})
             localStorage.setItem('token', userTokenJSON.encodedToken);
+            navigate(`${location?.state?.from?.pathname}`);
           }
           else{
             console.log(loginInfo)

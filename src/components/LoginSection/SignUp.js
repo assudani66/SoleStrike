@@ -4,9 +4,7 @@ import "./SignUp.css"
 import { toast } from '../../../node_modules/react-hot-toast/dist/index';
 const SignUp = () => {
   const { signUpUser } = useAuth();
-
   const notify = (message) => toast(message)
-
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -14,7 +12,6 @@ const SignUp = () => {
     password: ''
   });
   const [confirmPassword,setConfirmPassword] = useState("")
-  const [submitHandle,setHandleSubmit] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +24,6 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(formData.password === confirmPassword){
-      setHandleSubmit(true)
       signUpUser(formData);
 
     }
@@ -84,7 +80,7 @@ const SignUp = () => {
           onChange={(e)=>setConfirmPassword(e.target.value)}
           required
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit" disabled={(!formData.password === confirmPassword)}>Sign Up</button>
       </form>
     </div>
   );

@@ -19,17 +19,14 @@ const AuthContextProvider = (props) => {
             method: 'POST',
             body: JSON.stringify(creds(userEmail, userPassword))
           });
-          if(userToken.status === 200 ){
+          if(userToken.ok){
             const userTokenJSON = await userToken.json();
-            console.log(userToken)
             notify("user LoggedIn")
-            console.log(userTokenJSON)
             loginDispatch({type:"login",payload:userTokenJSON.encodedToken,login:true})
             localStorage.setItem('token', userTokenJSON.encodedToken);
           }
-
           else{
-            console.log(userToken)
+            console.log(loginInfo)
             notify("user doesnot exist")
             loginDispatch({type:"login",payload:"",login:false})
             localStorage.setItem('token', "");
@@ -62,39 +59,42 @@ const AuthContextProvider = (props) => {
     }
   };
 
-  const loginReducer = (loginInfo, action) => {
+  const loginReducer = (state, action) => {
 
     switch (action.type) {
-    case "login":
-        return{...loginInfo,
-            token:action.payload,
-            isLoggedIn:action.login}
+      case "login":
+        return {
+          ...state,
+          token: action.payload,
+          isLoggedIn: action.login
+        };
       case "logout":
         localStorage.removeItem("token");
         return {
-            ...loginInfo,
+          ...state,
           token: "",
           isLoggedIn: false
         };
       case "loginWithTestUser":
-          return {
-            ...loginInfo,
-            token: action.payload,
-            isLoggedIn: action.login
-          }
+        return {
+          ...state,
+          token: action.payload,
+          isLoggedIn: action.login
+        };
       case "signUp":
-          return {
-            token: action.payload,
-            isLoggedIn: true
-          };
-
+        return {
+          ...state,
+          token: action.payload,
+          isLoggedIn: true
+        };
       case "loadLocalToken":
-          return{
-            token:action.payload,
-            isLoggedIn:action.login
-          }
+        return {
+          ...state,
+          token: action.payload,
+          isLoggedIn: action.login
+        };
       default:
-        return loginInfo;
+        return state;
     }
   };
 

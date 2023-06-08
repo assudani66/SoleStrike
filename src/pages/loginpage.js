@@ -4,14 +4,15 @@ import SignUp from '../components/LoginSection/SignUp'
 import Login from '../components/LoginSection/Login'
 
 const LoginPage = () => {
-    const {loginInfo:{isLoggedIn},loginDispatch,loginUser} = useAuth()
+    const {loginInfo:{isLoggedIn},loginDispatch} = useAuth()
+    console.log(isLoggedIn)
     const [login,setLogin] = useState("true")
   return (
-    <div>
-      <p>Status:{isLoggedIn > 0 ? 'you are Logged In' : 'you are Logged Out'}</p>
+    <div className='login-container'>
+      <p>Status:{isLoggedIn === true ? 'you are Logged In' : 'you are Logged Out'}</p>
         {!isLoggedIn && login &&  <Login/>}
       {!isLoggedIn && <p> you can  {login ? "sign up " : "login " }<span style={{color:'blue',cursor:'pointer'}} onClick={()=>setLogin(!login)} >here</span></p>}
-       {isLoggedIn && <button className='' onClick={()=>loginDispatch({type:"logout"})}>Logout</button>}
+       {isLoggedIn && <button className='login' onClick={()=>loginDispatch({type:"logout"})}>Logout</button>}
        {!login && !isLoggedIn && <SignUp/>}
     </div>
   )

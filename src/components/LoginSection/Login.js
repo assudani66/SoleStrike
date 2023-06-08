@@ -9,12 +9,12 @@ const Login = () => {
     userName: 'adarshbalika@gmail.com',
     userPassword: 'adarshbalika'
   });
-
   const navigate = useNavigate();
   const location = useLocation();
   const handleLogin = () => {
     loginUser(loginCredentials.userName, loginCredentials.userPassword);
-    // navigate(location?.state?.from?.pathname);
+    navigate(`${location?.state?.from?.pathname}`);
+    console.log(location?.state?.from?.pathname)
   };
 
   return (

@@ -12,10 +12,8 @@ const {loginDispatch} = useAuth()
             method: 'POST',
             body: JSON.stringify(creds(userEmail, userPassword))
           });
-
           if(userToken.status === 200 ){
             const userTokenJSON = await userToken.json();
-
             loginDispatch({type:"login",payload:userTokenJSON.encodedToken,login:true})
             localStorage.setItem('token', userTokenJSON.encodedToken);
           }

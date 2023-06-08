@@ -28,7 +28,8 @@ const location = useLocation()
             localStorage.setItem('token', userTokenJSON.encodedToken);
             navigate(`${location?.state?.from?.pathname}`);
           }
-
+          else{
+            console.log(loginInfo)
             notify("user doesnot exist")
             loginDispatch({type:"login",payload:"",login:false})
             localStorage.setItem('token', "");

@@ -9,7 +9,7 @@ const AddressCard = (address) => {
   const openAddressModal = (address) => {
     userDispatch({ type: 'openAddress' });
     userDispatch({type:'editAddress',payload:address})
-    console.log(userData)
+
   };
 
   return (

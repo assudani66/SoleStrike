@@ -60,7 +60,7 @@ const WishListContextProvider = (props) => {
         const data = await response.json();
         notify("Added To Wishlist")
         wishListDispatch({type:"addItem",payload:data.wishlist,selectedProduct:product})
-        console.log(data.wishlist)
+
       }
       } catch (error) {
         console.error(error);
@@ -82,7 +82,7 @@ const removeWishListItem = async (product) => {
     const data = await response.json();
     notify("Removed from Wishlist")
     wishListDispatch({type:"addItem",payload:data.wishlist,selectedProduct:product})
-    console.log(data.wishlist)
+
   } catch (error) {
     console.error(error);
   }

@@ -5,7 +5,7 @@ import { Navigate, useLocation } from '../../node_modules/react-router-dom/dist/
 
 export const RequiresAuth = ({children}) => {
     const token = localStorage.getItem("token")
-  console.log(token)
+
     const location = useLocation();
   return token ? children : <Navigate to="/login" state={{ from: location }} replace  />
 }

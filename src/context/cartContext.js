@@ -60,7 +60,7 @@ const CartContextProvider = (props) => {
         const data = await response.json();
         notify("Added To Cart")
         cartDispatch({type:"addItem",payload:data.cart,selectedProduct:product})
-        console.log(data.cart)
+
       }
       } catch (error) {
         console.error(error);

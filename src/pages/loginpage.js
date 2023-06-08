@@ -5,7 +5,7 @@ import Login from '../components/LoginSection/Login'
 
 const LoginPage = () => {
     const {loginInfo:{isLoggedIn},loginDispatch} = useAuth()
-    console.log(isLoggedIn)
+
     const [login,setLogin] = useState("true")
   return (
     <div className='login-container'>

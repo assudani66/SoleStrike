@@ -12,3 +12,12 @@
     margin: 45px;
     justify-content: space-between;
 }
+.checkOut button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }

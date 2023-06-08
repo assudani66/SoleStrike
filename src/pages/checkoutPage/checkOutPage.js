@@ -7,7 +7,7 @@ import "./checkOutPage.css"
 const CheckOutPage = () => {
     const {userData,userDispatch} = useUserData()
     const {cart} = useCart()
-    const handleSubmit = (e)=>{
+    const handleSubmit = ()=>{
         var options = {
           key: "rzp_test_2pm1kNf4Qwoehw",
           key_secret:"3xiMRzmvH6iCzETCNeeEMLmT",
@@ -50,7 +50,6 @@ const CheckOutPage = () => {
         <p className='order'> total:<span>₹{cart.reduce((arr,curr)=>(arr + curr.price*curr.qty),0)}</span></p>
       <button onClick={e=>handleSubmit(e)}>PlaceOrder</button>
       </div>
-      
     </div>
   )
 }

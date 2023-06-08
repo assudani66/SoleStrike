@@ -13,7 +13,7 @@ const Cart = () => {
       <div className="cartItems">
       {cart.length ===0  && <div className="emptyCard">
       <h1>Cart is Empty Go Shop now</h1>
-      <button className="shopNowButton">Go Shop Now</button>
+      <button onClick={()=>navigate("/store")} >Go Shop Now</button>
       </div>}
     {cart.map(product => <CartCard key={product._id} {...product} isInCart />)}
     </div>

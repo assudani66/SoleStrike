@@ -31,6 +31,13 @@ const AddressModal = () => {
     <div className="address-modal">
       <input
         type="text"
+        name="name"
+        placeholder="Name"
+        value={formData.name}
+        onChange={handleChange}
+      />
+      <input
+        type="text"
         name="city"
         placeholder="City"
         value={formData.city}
@@ -41,13 +48,6 @@ const AddressModal = () => {
         name="country"
         placeholder="Country"
         value={formData.country}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        value={formData.name}
         onChange={handleChange}
       />
       <input

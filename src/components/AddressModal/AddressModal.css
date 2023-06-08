@@ -13,6 +13,7 @@
   
   .address-modal input {
     width: 100%;
+    box-sizing: border-box;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -29,13 +30,14 @@
   }
   
   .address-modal button.add {
-    background-color: #4caf50;
+    background-color: #000000;
     color: white;
   }
   
   .address-modal button.cancel {
-    background-color: #f44336;
-    color: white;
+    background-color: #ffffff;
+    border: 1px black solid;
+    color: rgb(0, 0, 0);
   }
   
   /* Placeholder styles */

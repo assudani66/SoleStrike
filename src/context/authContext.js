@@ -54,7 +54,6 @@ const AuthContextProvider = (props) => {
               password: password,
             }),
           });
-      console.log(response)
       if(response.ok){
         notify("You are signed Up")
       }

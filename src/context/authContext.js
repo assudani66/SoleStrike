@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useEffect, useReducer } from 'react';
+import { toast } from '../../node_modules/react-hot-toast/dist/index';
 
 const authContext = createContext();
+
+const notify =  (message) => toast(message)
 
 const AuthContextProvider = (props) => {
 
@@ -19,10 +22,15 @@ const AuthContextProvider = (props) => {
           if(userToken.status === 200 ){
             const userTokenJSON = await userToken.json();
             console.log(userToken)
+            notify("user LoggedIn")
+            console.log(userTokenJSON)
             loginDispatch({type:"login",payload:userTokenJSON.encodedToken,login:true})
             localStorage.setItem('token', userTokenJSON.encodedToken);
           }
+
           else{
+            console.log(userToken)
+            notify("user doesnot exist")
             loginDispatch({type:"login",payload:"",login:false})
             localStorage.setItem('token', "");
           }
@@ -32,7 +40,7 @@ const AuthContextProvider = (props) => {
     }
   };
 
-  const signUpUser = async () => {
+  const signUpUser = async ({firstName,lastName,email,password}) => {
     try {
         const response = await fetch('/api/auth/signup', {
             method: 'POST',
@@ -40,13 +48,16 @@ const AuthContextProvider = (props) => {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              firstName: 'piyush',
-              lastName: 'assudani',
-              email: 'assudani66@gmail.com',
-              password: '78585212',
+              firstName: firstName,
+              lastName: lastName,
+              email: email,
+              password: password,
             }),
           });
-      
+      console.log(response)
+      if(response.ok){
+        notify("You are signed Up")
+      }
     } catch (error) {
       console.log(error);
     }

@@ -4,7 +4,7 @@ import { useUserData } from '../context/userContext'
 import { useAuth } from '../context/authContext'
 
 const UserProfile = () => {
-const {getAddresses,removeAddress} = useUserData()
+const {removeAddress} = useUserData()
 const {loginDispatch} = useAuth()
   return (
     <div>

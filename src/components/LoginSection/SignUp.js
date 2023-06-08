@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/authContext';
 import "./SignUp.css"
+import { toast } from '../../../node_modules/react-hot-toast/dist/index';
 const SignUp = () => {
   const { signUpUser } = useAuth();
+
+  const notify = (message) => toast(message)
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -10,6 +13,8 @@ const SignUp = () => {
     email: '',
     password: ''
   });
+  const [confirmPassword,setConfirmPassword] = useState("")
+  const [submitHandle,setHandleSubmit] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +26,14 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signUpUser();
+    if(formData.password === confirmPassword){
+      setHandleSubmit(true)
+      signUpUser(formData);
+
+    }
+    else{
+      notify("incorrect Password")
+    }
   };
 
   return (
@@ -61,6 +73,15 @@ const SignUp = () => {
           name="password"
           value={formData.password}
           onChange={handleChange}
+          required
+        />
+        <label htmlFor="password">Confirm Passowrd:</label>
+        <input
+          type="password"
+          id="confirm_password"
+          name="password"
+          value={confirmPassword}
+          onChange={(e)=>setConfirmPassword(e.target.value)}
           required
         />
         <button type="submit">Sign Up</button>

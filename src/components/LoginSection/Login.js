@@ -2,29 +2,30 @@ import React, { useState } from 'react';
 import { useAuth } from '../../context/authContext';
 import { useLocation, useNavigate } from 'react-router-dom';
 import "./Login.css"
+import { toast } from '../../../node_modules/react-hot-toast/dist/index';
 const Login = () => {
   const { loginInfo, loginUser } = useAuth();
   const [loginCredentials, setLoginCredentials] = useState({
     userName: 'adarshbalika@gmail.com',
     userPassword: 'adarshbalika'
   });
+
   const navigate = useNavigate();
   const location = useLocation();
   const handleLogin = () => {
     loginUser(loginCredentials.userName, loginCredentials.userPassword);
-    console.log(location);
-    navigate(location?.state?.from?.pathname);
+    // navigate(location?.state?.from?.pathname);
   };
 
   return (
     <div className="login-container">
       <label>
-        userName
-        <input value={loginCredentials.userName} />
+        User name
+        <input value={loginCredentials.userName} onChange={(e) => setLoginCredentials({...loginCredentials,userName: e.target.value})} />
       </label>
       <label>
-        password
-        <input value={loginCredentials.userPassword} />
+        Password
+        <input value={loginCredentials.userPassword} onChange={(e) => setLoginCredentials({...loginCredentials,userPassword: e.target.value})} />
       </label>
       <button onClick={() => handleLogin()}>Login</button>
       <button onClick={() => loginUser('adarshbalika@gmail.com', 'adarshbalika')}>

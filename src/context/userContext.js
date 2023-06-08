@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
+import { useAuth } from "./authContext";
 
 const userContext = createContext()
 
@@ -17,6 +18,8 @@ const UserContextProvider = ({children}) => {
         }
       }
     }
+    const {loginInfo} = useAuth()
+
     const userReducer = (userState,action) =>{
         switch (action.type) {
             case "LoginUserData":
@@ -135,7 +138,9 @@ const UserContextProvider = ({children}) => {
           };
 
           useEffect(()=>{
-            getAddresses()
+            if(loginInfo.isLoggedIn === true ){
+              getAddresses()
+            }
           },[])
 
         const intialUserData = {

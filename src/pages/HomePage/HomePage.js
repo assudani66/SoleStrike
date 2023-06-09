@@ -7,7 +7,9 @@ const HomePage = () => {
   const {filterDispatch} = useFilterContext()
   return (
     <div className='homePage'>
-      <img src="/images/SoleStrike Hero Image.png"/>
+      <img className='featuredImage' src="/images/SoleStrike Hero Image.png"/>
+      <h1 className='headingCategroies'>Categories</h1>
+      <hr/>
       <div className='categories'>
       <div onClick={()=>{
         navigate("/store")
